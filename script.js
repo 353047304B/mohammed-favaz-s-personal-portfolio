@@ -43,12 +43,25 @@ hiddenSections.forEach(section => {
     observer.observe(section);
 });
 
-// Form Submission (Prevent Default)
+// Form Submission
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        alert('Thank you for reaching out! Your message has been received.');
-        contactForm.reset();
+        
+        const formData = new FormData(contactForm);
+        
+        // Submit the form data asynchronously
+        fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+        }).then(() => {
+            alert('Thank you for reaching out! Your message has been received.');
+            contactForm.reset();
+        }).catch((error) => {
+            alert('There was an error sending your message. Please try again.');
+            console.error('Error!', error.message);
+        });
     });
 }
