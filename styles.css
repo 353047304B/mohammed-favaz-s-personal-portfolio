@@ -74,6 +74,7 @@ ul {
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
+    font-family: 'Outfit', sans-serif;
     font-size: 0.9rem;
 }
 
@@ -189,6 +190,7 @@ section {
 }
 
 .hero-content .subtitle {
+    font-family: 'Outfit', sans-serif;
     color: var(--accent);
     font-size: 1.2rem;
     margin-bottom: 1rem;
@@ -321,6 +323,7 @@ section {
 }
 
 .detail-card .date {
+    font-family: 'Outfit', sans-serif;
     font-size: 0.9rem;
     color: var(--text-secondary);
     margin-bottom: 1rem;
@@ -380,6 +383,7 @@ section {
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
+    font-family: 'Outfit', sans-serif;
     border: 1px solid rgba(0, 240, 255, 0.2);
 }
 
@@ -422,6 +426,7 @@ section {
 }
 
 .timeline-content .date {
+    font-family: 'Outfit', sans-serif;
     font-size: 0.9rem;
     color: var(--text-secondary);
     margin: 0.5rem 0 1rem;
@@ -465,6 +470,7 @@ section {
 
 .project-content .subtitle {
     color: var(--accent);
+    font-family: 'Outfit', sans-serif;
     font-size: 0.9rem;
     margin-bottom: 1rem;
 }
@@ -492,6 +498,7 @@ section {
 .project-tech span {
     font-size: 0.8rem;
     color: var(--text-secondary);
+    font-family: 'Outfit', sans-serif;
 }
 
 /* Contact Section */
