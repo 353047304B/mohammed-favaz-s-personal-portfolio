@@ -46,19 +46,17 @@ hiddenSections.forEach(section => {
 // Form Submission (Prevent Default)
 const contactForm = document.getElementById('contactForm');
 const successPopup = document.getElementById('successPopup');
-const closePopup = document.getElementById('closePopup');
 
-if (contactForm) {
+if (contactForm && successPopup) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         successPopup.classList.add('active');
         contactForm.reset();
-    });
-}
-
-if (closePopup) {
-    closePopup.addEventListener('click', () => {
-        successPopup.classList.remove('active');
+        
+        // Auto-close popup after 3 seconds (3000ms)
+        setTimeout(() => {
+            successPopup.classList.remove('active');
+        }, 3000);
     });
 }
 
