@@ -43,28 +43,52 @@ hiddenSections.forEach(section => {
     observer.observe(section);
 });
 
-// Form Submission (Prevent Default)
+// Form Submission with Google Forms integration
 const contactForm = document.getElementById('contactForm');
 const successPopup = document.getElementById('successPopup');
 
-if (contactForm && successPopup) {
+if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        successPopup.classList.add('active');
-        contactForm.reset();
         
-        // Auto-close popup after 3 seconds (3000ms)
-        setTimeout(() => {
-            successPopup.classList.remove('active');
-        }, 3000);
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        const formData = new FormData(contactForm);
+        
+        fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSf-3soKzQXst7myd76gVEH9ck8-sH1hwQfGw4UYfVmD0_rvKA/formResponse', {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+        })
+        .then(() => {
+            // Show custom success popup
+            if (successPopup) {
+                successPopup.classList.add('active');
+                
+                // Auto close after 4 seconds
+                setTimeout(() => {
+                    successPopup.classList.remove('active');
+                }, 4000);
+            }
+            contactForm.reset();
+        })
+        .catch((error) => {
+            console.error('Error submitting form:', error);
+            alert('Oops! Something went wrong. Please try again.');
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+        });
     });
 }
 
-// Close popup when clicking outside the box
+// Close success popup on click
 if (successPopup) {
-    successPopup.addEventListener('click', (e) => {
-        if (e.target === successPopup) {
-            successPopup.classList.remove('active');
-        }
+    successPopup.addEventListener('click', () => {
+        successPopup.classList.remove('active');
     });
 }
