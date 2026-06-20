@@ -582,8 +582,29 @@ section {
 }
 
 .contact-form button {
-    width: 100%;
+    flex: 1;
+    margin-top: 0;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
     margin-top: 1rem;
+}
+
+.success-msg {
+    text-align: center;
+    color: var(--accent);
+    font-size: 1rem;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    background: rgba(0, 240, 255, 0.08);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    border-radius: 8px;
+}
+
+.hidden {
+    display: none;
 }
 
 /* Footer */

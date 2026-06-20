@@ -43,25 +43,22 @@ hiddenSections.forEach(section => {
     observer.observe(section);
 });
 
-// Form Submission
+// Form Submission (Prevent Default)
 const contactForm = document.getElementById('contactForm');
+const successMsg = document.getElementById('successMsg');
+const closeFormBtn = document.getElementById('closeFormBtn');
+
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
-        const formData = new FormData(contactForm);
-        
-        // Submit the form data asynchronously
-        fetch(contactForm.action, {
-            method: 'POST',
-            body: formData,
-            mode: 'no-cors'
-        }).then(() => {
-            alert('Thank you for reaching out! Your message has been received.');
-            contactForm.reset();
-        }).catch((error) => {
-            alert('There was an error sending your message. Please try again.');
-            console.error('Error!', error.message);
-        });
+        contactForm.reset();
+        successMsg.classList.remove('hidden');
+    });
+}
+
+if (closeFormBtn) {
+    closeFormBtn.addEventListener('click', () => {
+        contactForm.reset();
+        successMsg.classList.add('hidden');
     });
 }
