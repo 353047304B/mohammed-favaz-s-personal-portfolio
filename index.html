@@ -232,14 +232,20 @@
                 <div class="input-group">
                     <textarea id="message" rows="5" required placeholder="Your Message"></textarea>
                 </div>
-                <div class="form-buttons">
-                    <button type="submit" class="btn primary">Send Message</button>
-                    <button type="button" class="btn secondary" id="closeFormBtn">Close</button>
-                </div>
-                <div id="successMsg" class="success-msg hidden">✅ Message sent! I'll get back to you soon.</div>
+                <button type="submit" class="btn primary">Send Message</button>
             </form>
         </div>
     </section>
+
+    <!-- Success Popup Modal -->
+    <div id="successPopup" class="popup-overlay">
+        <div class="popup-box glass">
+            <div class="popup-icon">✅</div>
+            <h3>Message Sent!</h3>
+            <p>Thank you for reaching out, Mohammed Favaz CK will get back to you soon.</p>
+            <button id="closePopup" class="btn primary popup-close-btn">Close</button>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>

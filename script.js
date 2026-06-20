@@ -45,20 +45,28 @@ hiddenSections.forEach(section => {
 
 // Form Submission (Prevent Default)
 const contactForm = document.getElementById('contactForm');
-const successMsg = document.getElementById('successMsg');
-const closeFormBtn = document.getElementById('closeFormBtn');
+const successPopup = document.getElementById('successPopup');
+const closePopup = document.getElementById('closePopup');
 
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        successPopup.classList.add('active');
         contactForm.reset();
-        successMsg.classList.remove('hidden');
     });
 }
 
-if (closeFormBtn) {
-    closeFormBtn.addEventListener('click', () => {
-        contactForm.reset();
-        successMsg.classList.add('hidden');
+if (closePopup) {
+    closePopup.addEventListener('click', () => {
+        successPopup.classList.remove('active');
+    });
+}
+
+// Close popup when clicking outside the box
+if (successPopup) {
+    successPopup.addEventListener('click', (e) => {
+        if (e.target === successPopup) {
+            successPopup.classList.remove('active');
+        }
     });
 }

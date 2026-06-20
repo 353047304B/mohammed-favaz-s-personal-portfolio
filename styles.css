@@ -582,29 +582,8 @@ section {
 }
 
 .contact-form button {
-    flex: 1;
-    margin-top: 0;
-}
-
-.form-buttons {
-    display: flex;
-    gap: 1rem;
+    width: 100%;
     margin-top: 1rem;
-}
-
-.success-msg {
-    text-align: center;
-    color: var(--accent);
-    font-size: 1rem;
-    margin-top: 1rem;
-    padding: 0.8rem;
-    background: rgba(0, 240, 255, 0.08);
-    border: 1px solid rgba(0, 240, 255, 0.2);
-    border-radius: 8px;
-}
-
-.hidden {
-    display: none;
 }
 
 /* Footer */
@@ -626,6 +605,56 @@ footer {
 .section-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Success Popup Modal */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-overlay.active {
+    display: flex;
+}
+
+.popup-box {
+    text-align: center;
+    padding: 3rem 2.5rem;
+    max-width: 420px;
+    width: 90%;
+    animation: popIn 0.4s ease;
+}
+
+@keyframes popIn {
+    0%   { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1);   opacity: 1; }
+}
+
+.popup-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.popup-box h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-primary);
+}
+
+.popup-box p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.popup-close-btn {
+    min-width: 140px;
 }
 
 /* Responsive */
