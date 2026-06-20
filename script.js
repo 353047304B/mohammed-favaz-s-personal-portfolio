@@ -86,9 +86,20 @@ if (contactForm) {
     });
 }
 
-// Close success popup on click
-if (successPopup) {
-    successPopup.addEventListener('click', () => {
+// Close success popup on close button click
+const closePopupBtn = document.getElementById('closePopupBtn');
+if (closePopupBtn) {
+    closePopupBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
         successPopup.classList.remove('active');
+    });
+}
+
+// Close popup when clicking outside the box
+if (successPopup) {
+    successPopup.addEventListener('click', (e) => {
+        if (e.target === successPopup) {
+            successPopup.classList.remove('active');
+        }
     });
 }

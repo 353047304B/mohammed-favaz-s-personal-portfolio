@@ -684,11 +684,33 @@ footer {
 }
 
 .popup-box {
+    position: relative;
     text-align: center;
     padding: 3rem 2.5rem;
     max-width: 420px;
     width: 90%;
     animation: popIn 0.4s ease;
+}
+
+.popup-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.popup-close-btn:hover {
+    color: var(--accent);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 @keyframes popIn {
